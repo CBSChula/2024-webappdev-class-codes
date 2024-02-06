@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Scammer Report</title>
+    <!-- Add additional head elements here -->
+</head>
+<body>
+    <h1>Add a New Scammer Report</h1>
+
+    <!-- Form for adding a new scammer report -->
+    <form method="post" action="{% url 'add-report' %}">
+        {% csrf_token %}
+        <label for="reporter_name">Reporter Name:</label><br>
+        <input type="text" id="reporter_name" name="reporter_name" required><br>
+
+        <label for="scammer_phone">Scammer Phone:</label><br>
+        <input type="text" id="scammer_phone" name="scammer_phone" required><br>
+
+        <label for="telecom_provider">Telecom Provider:</label><br>
+        <select name="telecom_provider" id="telecom_provider" required>
+            <option value="ais">AIS</option>
+            <option value="dtac">DTAC</option>
+            <option value="true">True</option>
+        </select><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+
+        <input type="submit" value="Submit Report">
+    </form> 
+
+    <!-- Link back to the list of scammer reports -->
+    <a href="{% url 'report-list' %}">Back to Scammer Reports</a>
+
+</body>
+</html>

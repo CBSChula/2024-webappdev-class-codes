@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scammer Report List</title>
+    <!-- Add additional head elements here -->
+</head>
+<body>
+    <h1>Scammer Reports</h1>
+    
+    <!-- Table to display scammer reports -->
+    <table border="1">
+        <tr>
+            <th>Reporter Name</th>
+            <th>Scammer Phone</th>
+            <th>Telecom Provider</th>
+            <th>Description</th>
+            <th>Date Reported</th>
+        </tr>
+        {% for report in reports %}
+            <tr>
+                <td>{{ report.reporter_name }}</td>
+                <td>{{ report.scammer_phone }}</td>
+                <td>{{ report.telecom_provider }}</td>
+                <td>{{ report.description }}</td>
+                <td>{{ report.date_reported }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6">No scammer reports found.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Link to add a new scammer report -->
+    <a href="{% url 'add-report' %}">Report a New Scammer</a>
+
+</body>
+</html>
